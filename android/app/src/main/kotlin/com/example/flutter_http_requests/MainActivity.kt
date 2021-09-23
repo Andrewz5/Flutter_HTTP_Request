@@ -1,4 +1,4 @@
-package com.example.flutter_http_requests
+package com.Sprints.HttpRequestApp
 
 import io.flutter.embedding.android.FlutterActivity
 
