@@ -2,13 +2,13 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_http_requests/Model/User.dart';
 
 import '../uitls.dart';
 
 class UserDeitals extends StatelessWidget {
-  String name, address, email, phone, website;
-
-  UserDeitals(this.name, this.address, this.email, this.phone, this.website);
+  User user;
+  UserDeitals({this.user});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +24,7 @@ class UserDeitals extends StatelessWidget {
               height: 50.0,
             ),
             Text(
-              'Name\n$name',
+              'Name\n${user.name}',
               style: const TextStyle(fontSize: 25, color: Colors.indigo),
               textAlign: TextAlign.center,
             ),
@@ -34,10 +34,10 @@ class UserDeitals extends StatelessWidget {
             InkWell(
               onTap: () {
                 launchURL(
-                    "mailto:$email ?subject=Hello World &body=Hello Guys");
+                    "mailto:${user.email} ?subject=Hello World &body=Hello Guys");
               },
               child: Text(
-                'Email\n$email',
+                'Email\n${user.email}',
                 style: const TextStyle(fontSize: 25, color: Colors.indigo),
                 textAlign: TextAlign.center,
               ),
@@ -46,7 +46,7 @@ class UserDeitals extends StatelessWidget {
               height: 30.0,
             ),
             Text(
-              'address\n$address',
+              'address\n${user.address.city}',
               style: const TextStyle(fontSize: 25, color: Colors.indigo),
               textAlign: TextAlign.center,
             ),
@@ -55,10 +55,10 @@ class UserDeitals extends StatelessWidget {
             ),
             InkWell(
               onTap: () {
-                launchURL('tel:$phone');
+                launchURL('tel:${user.phone}');
               },
               child: Text(
-                'Phone Number\n$phone',
+                'Phone Number\n${user.phone}',
                 style: const TextStyle(fontSize: 25, color: Colors.indigo),
                 textAlign: TextAlign.center,
               ),
@@ -68,10 +68,10 @@ class UserDeitals extends StatelessWidget {
             ),
             InkWell(
               onTap: () {
-                launchURL('http://$website');
+                launchURL('http://${user.website}');
               },
               child: Text(
-                'Website\n$website',
+                'Website\n${user.website}',
                 style: const TextStyle(fontSize: 25, color: Colors.indigo),
                 textAlign: TextAlign.center,
               ),

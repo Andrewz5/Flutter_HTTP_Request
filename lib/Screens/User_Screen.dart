@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter_http_requests/Model/User.dart';
 import 'package:flutter_http_requests/Screens/Home_Page.dart';
 import 'package:flutter_http_requests/Screens/Profile_Page.dart';
@@ -61,7 +62,30 @@ class _UserScreenState extends State<UserScreen> {
         ],
         onTap: _onItemTapped,
       ),
-      appBar: AppBar(),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(40.0),
+        child: Container(
+          decoration: const BoxDecoration(
+            color: Colors.indigo,
+            boxShadow: [BoxShadow(blurRadius: 10.0)],
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(20.0)),
+          ),
+          child: Column(
+            children: const [
+              SizedBox(
+                height: 40,
+              ),
+              Text(
+                "Home Page",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
       body: pages[currentIndex],
     );
     //ListView.builder(

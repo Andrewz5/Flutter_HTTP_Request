@@ -27,7 +27,6 @@ class _HomePageState extends State<HomePage> {
     getUserList();
   }
 
-  String name, address, email, phone, website;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,17 +41,11 @@ class _HomePageState extends State<HomePage> {
               itemBuilder: (BuildContext context, int index) {
                 return InkWell(
                   onTap: () {
-                    name = userList[index].name;
-                    email = userList[index].email;
-                    phone = userList[index].phone;
-                    website = userList[index].website;
-                    address =
-                        '${userList[index].address.street},${userList[index].address.city}';
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) =>
-                              UserDeitals(name, address, email, phone, website),
+                              UserDeitals(user: userList[index]),
                         ));
                   },
                   child: Padding(
