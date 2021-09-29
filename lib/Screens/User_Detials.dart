@@ -3,6 +3,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../uitls.dart';
+
 class UserDeitals extends StatelessWidget {
   String name, address, email, phone, website;
 
@@ -29,10 +31,16 @@ class UserDeitals extends StatelessWidget {
             const SizedBox(
               height: 30.0,
             ),
-            Text(
-              'Email\n$email',
-              style: const TextStyle(fontSize: 25, color: Colors.indigo),
-              textAlign: TextAlign.center,
+            InkWell(
+              onTap: () {
+                launchURL(
+                    "mailto:$email ?subject=Hello World &body=Hello Guys");
+              },
+              child: Text(
+                'Email\n$email',
+                style: const TextStyle(fontSize: 25, color: Colors.indigo),
+                textAlign: TextAlign.center,
+              ),
             ),
             const SizedBox(
               height: 30.0,
@@ -45,18 +53,28 @@ class UserDeitals extends StatelessWidget {
             const SizedBox(
               height: 30.0,
             ),
-            Text(
-              'Phone Numbaer\n$phone',
-              style: const TextStyle(fontSize: 25, color: Colors.indigo),
-              textAlign: TextAlign.center,
+            InkWell(
+              onTap: () {
+                launchURL('tel:$phone');
+              },
+              child: Text(
+                'Phone Number\n$phone',
+                style: const TextStyle(fontSize: 25, color: Colors.indigo),
+                textAlign: TextAlign.center,
+              ),
             ),
             const SizedBox(
               height: 30.0,
             ),
-            Text(
-              'Website\n$website',
-              style: const TextStyle(fontSize: 25, color: Colors.indigo),
-              textAlign: TextAlign.center,
+            InkWell(
+              onTap: () {
+                launchURL('http://$website');
+              },
+              child: Text(
+                'Website\n$website',
+                style: const TextStyle(fontSize: 25, color: Colors.indigo),
+                textAlign: TextAlign.center,
+              ),
             ),
           ],
         ),
